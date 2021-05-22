@@ -1,0 +1,63 @@
+{
+  "name": "rest-api-zubut",
+  "version": "0.0.1",
+  "description": "rest api zubut challenge",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js | pino-pretty",
+    "test": "jest",
+    "watch": "jest --watch--all",
+    "coverage": "jest --coverage",
+    "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
+    "lint": "eslint '{*.js,src/**/*.{js,jsx}}'"
+  },
+  "pre-commit": {
+    "run": [
+      "format",
+      "lint",
+      "coverage"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resparzasoto/rest-api-zubut.git"
+  },
+  "keywords": [
+    "node.js",
+    "express.js",
+    "pgsql",
+    "sequelize"
+  ],
+  "author": "rubén esparza <@resparzasoto>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/resparzasoto/rest-api-zubut/issues"
+  },
+  "homepage": "https://github.com/resparzasoto/rest-api-zubut#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-pino-logger": "^6.0.0",
+    "helmet": "^4.6.0",
+    "http-errors": "^1.8.0",
+    "http-status-codes": "^2.1.4",
+    "jsonschema": "^1.4.0",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.3",
+    "pg-native": "^3.0.0",
+    "sequelize": "^6.6.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "pino-pretty": "^4.8.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.3.0"
+  }
+}

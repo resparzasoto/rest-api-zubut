@@ -1,3 +1,15 @@
+# IDE
+.vscode/
+
+# Data
+data/
+
+# Docs
+docs/challenge-full-stack.pdf
+
+# Docker
+docker-compose.override.yml
+
 # Logs
 logs
 *.log
@@ -70,6 +82,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.prod
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
