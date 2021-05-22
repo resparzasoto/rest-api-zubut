@@ -1,9 +1,10 @@
 'use strict';
 
 const DatabaseService = require('../../../../application/contracts/DatabaseService');
+const environment = require('../../../../config/environment');
+const logger = require('../../../common/logger');
 
 const { Sequelize } = require('sequelize');
-const environment = require('../../../../config/environment');
 
 module.exports = class PostgresDataBaseService extends DatabaseService {
   constructor() {
@@ -36,10 +37,7 @@ module.exports = class PostgresDataBaseService extends DatabaseService {
 
       PostgresDataBaseService._db = sequelize;
     } catch (err) {
-      // eslint-disable-next-line no-console
-      console.error(
-        `[DatabaseService]: the application can't established connection with database`
-      );
+      logger.error(`[DatabaseService]: ${err.message}`);
 
       // eslint-disable-next-line no-magic-numbers
       process.exit(1);
