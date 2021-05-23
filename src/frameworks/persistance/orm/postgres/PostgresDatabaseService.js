@@ -37,9 +37,10 @@ module.exports = class PostgresDataBaseService extends DatabaseService {
 
     try {
       await sequelize.authenticate();
-      await sequelize.sync({
-        force: environment.database.sync,
-      });
+
+      if (environment.database.sync) {
+        await sequelize.sync();
+      }
     } catch (err) {
       logger.error(`[DatabaseService]: ${err.message}`);
       // eslint-disable-next-line no-magic-numbers

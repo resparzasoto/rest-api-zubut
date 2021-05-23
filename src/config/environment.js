@@ -17,7 +17,7 @@ module.exports = (() => {
       username: process.env.DATABASE_USERNAME,
       password: process.env.DATABASE_PASSWORD,
       native: process.env.DATABASE_NATIVE,
-      sync: process.env.DATABASE_SYNC,
+      sync: process.env.DATABASE_SYNC == 'true',
     },
   };
 
