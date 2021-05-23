@@ -5,6 +5,7 @@ const projectDependencies = require('./config/projectDependencies');
 const logger = require('./frameworks/common/logger');
 const notFoundHandler = require('./frameworks/common/middleware/notFoundHandler');
 const errorHandler = require('./frameworks/common/middleware/errorHandler');
+const routes = require('./web/routes');
 
 const express = require('express');
 const cors = require('cors');
@@ -24,9 +25,7 @@ const main = async () => {
     app.use(cors());
     app.use(helmet());
 
-    app.get('/', (req, res) => {
-      return res.send({ hi: 'world' });
-    });
+    app.use('/api/v1/', routes(projectDependencies));
 
     app.use(notFoundHandler.notFound);
 
