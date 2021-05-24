@@ -2,12 +2,13 @@
 
 const DatabaseService = require('../../../../application/contracts/services/DatabaseService');
 const environment = require('../../../../config/environment');
+const database = require('../../../../config/database');
 const logger = require('../../../common/logger');
 
 const { PostgresCompanyRepository } = require('./repositories');
 
 const { Sequelize } = require('sequelize');
-const { CompanyModel } = require('./models');
+const { CompanyModel, RolModel } = require('./models');
 
 module.exports = class PostgresDataBaseService extends DatabaseService {
   constructor() {
@@ -17,16 +18,24 @@ module.exports = class PostgresDataBaseService extends DatabaseService {
   }
 
   async initDatabase() {
-    const sequelize = new Sequelize({
-      dialect: environment.database.dialect,
-      database: environment.database.name,
-      host: environment.database.host,
-      username: environment.database.username,
-      password: environment.database.password,
-      native: environment.database.native,
-    });
+    let databaseConfig = {};
+
+    if (environment.app.environment === 'production') {
+      databaseConfig = database.production;
+    } else if (environment.app.environment === 'development') {
+      databaseConfig = database.development;
+    } else {
+      databaseConfig = database.test;
+    }
+
+    const sequelize = new Sequelize(databaseConfig);
 
     const companyModel = CompanyModel({
+      sequelize: sequelize,
+      type: Sequelize,
+    });
+    // eslint-disable-next-line no-unused-vars
+    const rolModel = RolModel({
       sequelize: sequelize,
       type: Sequelize,
     });
@@ -39,7 +48,7 @@ module.exports = class PostgresDataBaseService extends DatabaseService {
       await sequelize.authenticate();
 
       if (environment.database.sync) {
-        await sequelize.sync();
+        await sequelize.sync({ force: environment.database.force });
       }
     } catch (err) {
       logger.error(`[DatabaseService]: ${err.message}`);

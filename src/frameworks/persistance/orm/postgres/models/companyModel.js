@@ -7,7 +7,7 @@ module.exports = (dependencies) => {
   const { sequelize, type } = dependencies;
 
   return sequelize.define(
-    'company',
+    'companies',
     {
       id: {
         type: type.INTEGER,

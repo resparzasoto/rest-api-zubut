@@ -1,0 +1,19 @@
+'use strict'
+
+const path = require('path');
+
+module.exports = {
+  config: path.join(__dirname, '/src/config/database.js'),
+  'models-path': path.join(
+    __dirname,
+    '/src/frameworks/persistance/orm/postgres/models'
+  ),
+  'seeders-path': path.join(
+    __dirname,
+    '/src/frameworks/persistance/orm/postgres/seeders'
+  ),
+  'migrations-path': path.join(
+    __dirname,
+    '/src/frameworks/persistance/orm/postgres/migrations'
+  ),
+};

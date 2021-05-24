@@ -18,8 +18,9 @@ const bodySchema = {
     },
     rfc: {
       type: 'string',
+      minLength: SCHEMAS.MIN_LENGTHS.RFC,
       maxLength: SCHEMAS.MAX_LENGTHS.RFC,
-      //   pattern: SCHEMAS.PATTERNS.RFC,
+      // pattern: SCHEMAS.PATTERNS.RFC,
     },
     telephone: {
       type: 'string',

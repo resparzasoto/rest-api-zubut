@@ -15,11 +15,15 @@ module.exports = {
       TELEPHONE: '^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-s./0-9]*$',
       OBJECT_ID: '^[0-9a-fA-F]{24}$',
     },
+    MIN_LENGTHS: {
+      RFC: 12,
+    },
     MAX_LENGTHS: {
       LEGAL_NAME: 60,
       COMERCIAL_NAME: 60,
       RFC: 13,
       TELEPHONE: 15,
+      ROL_NAME: 15,
     },
     DEFAULT_VALUES: {
       COMERCIAL_NAME: '',
