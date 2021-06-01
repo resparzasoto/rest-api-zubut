@@ -5,6 +5,8 @@ module.exports = {
     INVALID_COMPANY_VALUES: 'invalid company values',
     INVALID_ID_VALUE: 'invalid id value',
     COMPANY_NOT_FOUND: 'company not found',
+    INVALID_USER_VALUES: 'invalid user values',
+    USER_NOT_FOUND: 'user not found',
   },
   SCHEMAS: {
     FORMAT: {
@@ -24,9 +26,16 @@ module.exports = {
       RFC: 13,
       TELEPHONE: 15,
       ROL_NAME: 15,
+      FIRST_NAME: 20,
+      LAST_NAME: 20,
+      EMAIL: 50,
+      PASSWORD: 72,
     },
     DEFAULT_VALUES: {
       COMERCIAL_NAME: '',
     },
+  },
+  SECURITY: {
+    SALT_OF_ENCRYPTION: 8,
   },
 };

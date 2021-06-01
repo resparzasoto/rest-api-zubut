@@ -5,25 +5,18 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('companies', [
       {
-        legalName: 'first legal name company',
-        comercialName: 'fist comercial name company',
+        legalName: 'legalName company one',
+        comercialName: 'comercialName company one',
         rfc: '0123456789QWE',
         telephone: '123-123-1212',
-        registeredDate: '2021-05-01',
+        registeredDate: '2020-01-01',
       },
       {
-        legalName: 'second legal name company',
-        comercialName: 'second comercial name company',
+        legalName: 'legalName company two',
+        comercialName: 'comercialName company two',
         rfc: '0123456789ASD',
         telephone: '456-456-4545',
-        registeredDate: '2021-05-02',
-      },
-      {
-        legalName: 'third legal name company',
-        comercialName: 'third comercial name company',
-        rfc: '0123456789ZXC',
-        telephone: '789-789-7878',
-        registeredDate: '2021-05-03',
+        registeredDate: '2020-02-02',
       },
     ]);
   },

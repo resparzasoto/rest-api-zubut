@@ -10,7 +10,7 @@ const {
   addCompanySchema,
   getByIdCompanySchema,
   updateCompanySchema,
-  deleteCompanySchema,
+  removeCompanySchema,
 } = require('../../frameworks/common/schemas/company');
 
 module.exports = (dependencies) => {
@@ -31,7 +31,7 @@ module.exports = (dependencies) => {
       controller.update
     )
     .delete(
-      validationHandler(deleteCompanySchema, 'params'),
+      validationHandler(removeCompanySchema, 'params'),
       controller.remove
     );
 

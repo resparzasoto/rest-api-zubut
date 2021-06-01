@@ -12,7 +12,7 @@ module.exports = (() => {
     },
     database: {
       sync: process.env.DATABASE_SYNC == 'true',
-      force: process.env.DATABASE_SYNC_FORCE === 'true',
+      force: process.env.DATABASE_SYNC_FORCE == 'true',
     },
   };
 

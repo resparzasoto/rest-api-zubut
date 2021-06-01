@@ -5,10 +5,13 @@ const environment = require('../../../../config/environment');
 const database = require('../../../../config/database');
 const logger = require('../../../common/logger');
 
-const { PostgresCompanyRepository } = require('./repositories');
+const {
+  PostgresCompanyRepository,
+  PostgresUserRepository,
+} = require('./repositories');
 
 const { Sequelize } = require('sequelize');
-const { CompanyModel, RolModel } = require('./models');
+const { CompanyModel, UserModel } = require('./models');
 
 module.exports = class PostgresDataBaseService extends DatabaseService {
   constructor() {
@@ -30,18 +33,21 @@ module.exports = class PostgresDataBaseService extends DatabaseService {
 
     const sequelize = new Sequelize(databaseConfig);
 
-    const companyModel = CompanyModel({
+    const Company = CompanyModel({
       sequelize: sequelize,
       type: Sequelize,
     });
-    // eslint-disable-next-line no-unused-vars
-    const rolModel = RolModel({
+    const User = UserModel({
       sequelize: sequelize,
       type: Sequelize,
     });
 
     this.companyRepository = new PostgresCompanyRepository({
-      companyModel: companyModel,
+      companyModel: Company,
+    });
+
+    this.userRepository = new PostgresUserRepository({
+      userModel: User,
     });
 
     try {

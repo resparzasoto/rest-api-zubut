@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 const { SCHEMAS } = require('../../../../../config/constants');
@@ -34,7 +35,7 @@ module.exports = {
         registeredDate: {
           type: Sequelize.DATEONLY,
           allowNull: false,
-          defaultValue: new Date(),
+          defaultValue: Sequelize.NOW,
         },
       },
       {
@@ -43,7 +44,6 @@ module.exports = {
     );
   },
 
-  // eslint-disable-next-line no-unused-vars
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('companies');
   },

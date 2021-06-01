@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 const { SCHEMAS } = require('../../../../../config/constants');
@@ -24,7 +25,6 @@ module.exports = {
     );
   },
 
-  // eslint-disable-next-line no-unused-vars
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('roles');
   },

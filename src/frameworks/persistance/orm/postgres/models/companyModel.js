@@ -36,7 +36,7 @@ module.exports = (dependencies) => {
       registeredDate: {
         type: type.DATEONLY,
         allowNull: false,
-        defaultValue: new Date(),
+        defaultValue: type.NOW,
       },
     },
     {
